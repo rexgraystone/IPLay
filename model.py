@@ -56,12 +56,12 @@ def train() -> list:
 def run():
     results = train()
     results = results.set_index('Model')
+    results.to_csv('results.csv', index=True)
     ax = results.plot(kind='bar')
     ax.set_xlabel('Models', ha='center', fontsize=10)
     ax.set_ylabel('Values')
     ax.set_title('Performance Metrics')
     plt.legend(loc='upper right', fontsize='small')
     plt.xticks(rotation=0, fontsize=5)
-    plt.show()
 
 run()
